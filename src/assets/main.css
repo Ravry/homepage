@@ -18,7 +18,7 @@ body {
 
 .centerbox {
     width: 90vw;
-    height: 90vh;
+    height: 85vh;
     background-color: var(--secondary-color);
     box-shadow: 5px 5px 2px 2px black;
     display: flex;
@@ -64,6 +64,18 @@ body {
     cursor: grab;
 }
 
+.header {
+    width: 90vw;
+    margin-bottom: 2vh;
+    background-color: var(--secondary-color);
+    box-shadow: 5px 5px 2px 2px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+}
+
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -74,4 +86,12 @@ body {
 
 ::-webkit-scrollbar-thumb {
     background: grey; 
+}
+
+::-moz-selection {
+    background: cornflowerblue;
+}
+
+::selection {
+    background: cornflowerblue;
 }
