@@ -148,10 +148,10 @@ onUnmounted(() => {
           <div class="text-xp">
             <i style="font-size: 5vw; flex-grow: 1; color: red;" class="fa-solid fa-circle-exclamation"></i>
             <div style="flex-grow: 4;">
-              <p style="margin: 2px">Traceback (most recent call last):</p>
-              <p style="margin: 2px">&nbsp;&nbsp;File C:\Ravry is accessible</p>
-              <p style="margin: 2px">&nbsp;&nbsp;File C:\Ravry Access granted</p>
-              <p style="margin: 2px">SystemExit: 0.</p>
+              <p style="margin: 2px; color: black;">Traceback (most recent call last):</p>
+              <p style="margin: 2px; color: black;" >&nbsp;&nbsp;File C:\Ravry is accessible</p>
+              <p style="margin: 2px; color: black;">&nbsp;&nbsp;File C:\Ravry Access granted</p>
+              <p style="margin: 2px; color: black;">SystemExit: 0.</p>
             </div>
           </div>
           <div class="button-xp" @click="openWindowX = false">
