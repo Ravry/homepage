@@ -167,7 +167,7 @@ onUnmounted(() => {
         <i :class="darkmode === false ? 'fa-solid fa-moon' : 'fa-solid fa-lightbulb'"></i>
       </div>
       <div class="btn header-item" @click="openPanel = true">
-        <div class="notification">1</div>
+        <div class="notification"> {{ dbArticles.length }} </div>
         <i class="fa-solid fa-envelope"></i>
       </div>
     </div>
