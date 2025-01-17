@@ -1,0 +1,21 @@
+import { createClient } from '@supabase/supabase-js';
+
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_KEY = import.meta.env.VITE_SUPABASE_KEY;
+
+export const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+export const getArticles = async () => {
+  const { data, error } = await supabase.from('articles').select("*");
+  if (error) {
+    console.error('Error fetching articles: ', error);
+    return null;
+  }
+  return data;
+}
+
+export const formatDate = (timestamp) => {
+    const date = new Date(timestamp);
+    const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    return new Intl.DateTimeFormat('en-US', options).format(date);
+};

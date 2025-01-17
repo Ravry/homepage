@@ -4,12 +4,12 @@ import { createApp } from 'vue'
 import { createWebHistory, createRouter } from 'vue-router'
 import App from './App.vue'
 import Home from './assets/pages/Home.vue'
-import Tutorials from './assets/pages/Tutorials.vue'
+import Other from './assets/pages/Other.vue'
 
 const routes = [
-    { path: '/Homepage/Homepage/', component: Home },
-    { path: '/Homepage/', component: Home },
-    { path: '/Homepage/Anderes/', component: Tutorials}
+    { path: '/homepage/homepage/', component: Home },
+    { path: '/homepage/', component: Home },
+    { path: '/homepage/other/', component: Other}
 ]
 
 const router = createRouter({
