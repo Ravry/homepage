@@ -39,7 +39,7 @@ function getSystemInfo() {
   const platform = navigator.platform;
   const userAgent = navigator.userAgent;
   const vendor = navigator.vendor;
-  console.log("System Information:", {platform, userAgent, vendor});
+  //console.log("System Information:", {platform, userAgent, vendor});
 }
 
 const dbArticles = ref([]);
@@ -77,7 +77,6 @@ const dragWindow = (event) => {
     const bodyRect = document.body.getBoundingClientRect();
     const deltaX = event.clientX - initialMouseX;
     const deltaY = event.clientY - initialMouseY;
-    console.log(deltaX);
     translateX.value = initialTranslateX + (deltaX / bodyRect.width) * 200;
     translateY.value = initialTranslateY + (deltaY / bodyRect.height) * 200;
   }
