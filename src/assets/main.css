@@ -62,6 +62,10 @@ body {
     overflow: hidden;
 }
 
+input {
+    outline: none;
+}
+
 .header {
     margin: 0 auto;
     width: 80vw;
@@ -302,6 +306,7 @@ body {
     text-align: center;
     overflow: auto;
     margin: 10px;
+    gap: 10px;
 }
 
 .panel-content-item {
@@ -403,4 +408,56 @@ body {
 
 .timestamp {
     color: var(--secondary-font-color);
+}
+
+.article-container {
+    padding: 20px;
+    overflow: auto;
+}
+
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.comment-input {
+    height: 20px;
+    border: 0;
+    border-bottom: 2px solid grey;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+}
+
+.comment-btn {
+    border: 2px solid grey;
+    height: 40px;
+    padding: 10px;
+    cursor: grab;
+    background-color: var(--primary-color);
+    color: var(--font-color);
+}
+
+.article-comments {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.article-comment {
+    background-color: var(--primary-color);
+    padding: 14px;
+    border-radius: 20px;
+}
+
+.article-comment-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.article-comment-header-user {
+    font-weight: bold;
 }

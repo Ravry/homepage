@@ -95,6 +95,11 @@ onUnmounted(() => {
   document.removeEventListener("mouseup", stopDrag);
 });
 
+const MAX_PREVIEW_LENGTH = 100;
+const truncate_preview = (article_content) => {
+  return article_content.length > MAX_PREVIEW_LENGTH  ? article_content.substring(0, MAX_PREVIEW_LENGTH ) + "..." : article_content;
+}
+
 </script>
 
 <template>
@@ -131,6 +136,7 @@ onUnmounted(() => {
             <div v-for="article in dbArticles" class="panel-content-item">
               <h2>{{ article.title }}</h2>
               <p>{{ article.content }}</p>
+              <p v-if="article.article_content">{{ truncate_preview(article.article_content[0].content) }}</p>
               <p class="timestamp">{{ formatDate(article.created_at) }}</p>
             </div>
           </div>
@@ -167,7 +173,7 @@ onUnmounted(() => {
         <i :class="darkmode === false ? 'fa-solid fa-moon' : 'fa-solid fa-lightbulb'"></i>
       </div>
       <div class="btn header-item" @click="openPanel = true">
-        <div class="notification"> {{ dbArticles.length }} </div>
+        <div class="notification" v-if="dbArticles.length > 0"> {{ dbArticles.length }} </div>
         <i class="fa-solid fa-envelope"></i>
       </div>
     </div>
