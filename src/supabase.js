@@ -41,6 +41,27 @@ export const addCommentToArticle = async (article_id, user, content) => {
   }
 }
 
+
+export const addArticle = async (title, description, content) => {
+  const { data, error } = await supabase.from('articles').insert([
+    {
+      title: title,
+      content: description,
+      article_content: content,
+      img: content[0].img
+    }
+  ]);
+
+  if (error)
+  {
+    console.error('Error inserting article: ', error);
+  }
+  else 
+  {
+    console.log(data);
+  }
+}
+
 export const formatDate = (timestamp) => {
     const date = new Date(timestamp);
     const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };

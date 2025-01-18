@@ -66,6 +66,12 @@ input {
     outline: none;
 }
 
+textarea {
+    resize: none;
+    outline: none;
+    color: var(--font-color);
+}
+
 .header {
     margin: 0 auto;
     width: 80vw;
@@ -460,4 +466,13 @@ input {
 
 .article-comment-header-user {
     font-weight: bold;
+}
+
+.article-content-writer {
+    background-color: var(--secondary-color);
+}
+
+.content-image-compund {
+    display: flex;
+    flex-direction: column;
 }

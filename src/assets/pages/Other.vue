@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
-import { getArticles, formatDate, getCommentsFromArticle, addCommentToArticle } from '@/supabase';
+import { getArticles, formatDate, getCommentsFromArticle, addCommentToArticle, addArticle } from '@/supabase';
+import CryptoJS from 'crypto-js';
 
 const selected_article = ref(null);
 
@@ -38,11 +39,45 @@ const sendComment = async () => {
     selectedArticleComments.value = await getCommentsFromArticle(selected_article.value.id)
 }
 
+const write_article = ref(false);
+const article_password = ref('')
+const article_title = ref('');
+const article_description = ref('');
+const article_contents = ref([]);
+
+const addContentBox = async () => {
+    article_contents.value.push({content: ""});
+}
+
+const sendArticle = async () => {
+    if (!article_title.value || !article_description.value || !article_contents.value)
+        return;
+
+    const sha256 = 'c0ba9984db0d5f970bdd3aabd83655faef7029a08fca6ac3f880d302ffb66c0b';
+    const shad256_password = CryptoJS.SHA256(article_password.value).toString();
+
+    if (shad256_password === sha256)
+    {
+        await addArticle(article_title.value, article_description.value, article_contents.value);   
+        dbArticles.value = await getArticles();
+    }
+     
+    article_password.value = '';
+    article_title.value = '';
+    article_description.value = '';
+    article_contents.value = [];
+    write_article.value = false;
+}
+
 </script>
 
 <template>
     <div class="centerbox" style="justify-content: start;">
-        <div class="other-container" v-if="!selected_article">
+        <div class="other-container" v-if="!selected_article && !write_article">
+            <div class="btn" @click="write_article = true">
+              <i class="fa-solid fa-plus"></i>
+            </div>
+
             <div class="other-item" v-for="article in dbArticles" @click="selectArticle(article)">
                 <img :src="article.img" class="other-image">
                 <div class="other-text" style="width: 100%">
@@ -59,7 +94,10 @@ const sendComment = async () => {
               <i class="fa-solid fa-house"></i>
             </div>
             <h1>{{ selected_article.title }}</h1>
-            <p v-for="article_content in selected_article.article_content">{{ article_content.content }}</p>
+            <div v-for="article_content in selected_article.article_content">
+                <p>{{ article_content.content }}</p>
+                <img v-if="article_content.img" :src="article_content.img" :alt="article_content.img"></img>
+            </div>
             <p class="timestamp">{{ formatDate(selected_article.created_at) }}</p>
             <div style="border-bottom: 4px solid grey;"></div>
             
@@ -85,5 +123,24 @@ const sendComment = async () => {
                 <p v-if="selectedArticleComments.length === 0" style="text-align: center; font-style: italic;" class="timestamp">pretty empty here ... be the first to comment.</p>
             </div>
         </div>
+
+        
+        <div class="article-container" v-if="write_article">
+            <div class="btn" @click="write_article = false">
+              <i class="fa-solid fa-house"></i>
+            </div>
+            <div class="comment-form">
+                <input type="password" placeholder="password ..." class="comment-input" maxlength="20" v-model="article_password">
+                <input type="text" placeholder="title ..." class="comment-input" maxlength="20" v-model="article_title">
+                <input type="text" placeholder="description ..." class="comment-input" maxlength="500" v-model="article_description">
+                <div class="content-image-compund" v-for="(content, index) in article_contents" :key="index">
+                    <textarea class="article-content-writer" placeholder="content..." rows="5" v-model="content.content"></textarea>
+                    <input type="text" placeholder="img ..." class="comment-input" v-model="content.img">
+                </div>
+                <button class="comment-btn" @click="addContentBox()">+</button>
+                <button class="comment-btn" @click="sendArticle()">submit</button>    
+            </div>
+        </div>
+        
     </div>
 </template>
