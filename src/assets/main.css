@@ -59,7 +59,7 @@ body {
     align-items: center;
     justify-content: start;
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
 }
 
 input {
