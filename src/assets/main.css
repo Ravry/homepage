@@ -334,7 +334,7 @@ input {
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: max(250px, 30vw);
+    width: max(300px, 30vw);
     height: 40vh;
     background-color: var(--primary-color);
     box-shadow: 0px 0px 10px black;
@@ -355,7 +355,7 @@ input {
     justify-content: space-between;
     align-items: center;
     margin: 5px;
-    color: white;
+    color: var(--font-color);
     font-size: 20px;
 }
 
@@ -364,7 +364,7 @@ input {
     background-color: var(--secondary-color);
     width: 30px;
     height: 30px;
-    border: 3px solid white;
+    border: 3px solid var(--font-color);
     text-align: center;
     border-radius: 2px;
     cursor: grab;
@@ -391,7 +391,7 @@ input {
 .button-xp {
     border: 2px solid black;
     padding: 5px;
-    width: max(50px, 4vw);
+    width: max(80px, 4vw);
     text-align: center;
     display: flex;
     align-items: center;
@@ -401,7 +401,7 @@ input {
 
 .button-text-xp {
     border: 2px dotted black;
-    width: max(25px, 2.5vw);
+    width: max(55px, 2.5vw);
     font-size: 1rem;
     color: black;
 }
