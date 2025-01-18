@@ -152,7 +152,7 @@ const truncate_preview = (article_content) => {
         </div>
         <div class="content-xp">
           <div class="text-xp">
-            <i style="font-size: 5vw; flex-grow: 1; color: red;" class="fa-solid fa-circle-exclamation"></i>
+            <i style="font-size: 5vw; flex-grow: 4; color: grey;" class="fa-solid fa-file"></i>
             <div style="flex-grow: 4;">
               <p style="margin: 2px; color: black;">Traceback (most recent call last):</p>
               <p style="margin: 2px; color: black;" >&nbsp;&nbsp;File C:\Ravry is accessible</p>

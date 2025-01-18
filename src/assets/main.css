@@ -336,11 +336,11 @@ input {
     flex-direction: column;
     width: max(250px, 30vw);
     height: 40vh;
-    background-color: #0a5aec;
+    background-color: var(--primary-color);
     box-shadow: 0px 0px 10px black;
     z-index: 2;
     overflow: hidden;
-    border: 5px solid #0a5aec;
+    border: 5px solid var(--secondary-color);
     transform: translate(0%, 100%);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -361,7 +361,7 @@ input {
 
 .close-xp {
     font-size: 20px;
-    background-color: red;
+    background-color: var(--secondary-color);
     width: 30px;
     height: 30px;
     border: 3px solid white;
