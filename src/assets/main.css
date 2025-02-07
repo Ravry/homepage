@@ -108,6 +108,11 @@ textarea {
     margin: 10px;
 }
 
+.container:has(.grid-item:hover) .grid-item:not(:hover) {
+    filter: blur(2px);
+}
+
+
 .btn {
     background-color: rgb(120, 120, 120);
     padding: 10px;
@@ -144,6 +149,11 @@ textarea {
     padding: 1vw;
     border-radius: 10px;
     cursor: grab;
+    transition: all 200ms ease-in-out;
+}
+
+.grid-item:hover {
+    text-shadow: 0 0 10px currentColor;
 }
 
 .git-header {
@@ -417,7 +427,7 @@ textarea {
 }
 
 .article-container {
-    padding: 20px;
+    padding: 10px;
     overflow: auto;
 }
 

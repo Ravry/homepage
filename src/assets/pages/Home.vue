@@ -14,36 +14,22 @@
             switch(lang.toLowerCase())
             {
                 case "html":
-                    return {
-                        backgroundColor: 'orange'
-                    };
+                    return 'orange';
                 case "c++": 
-                    return {
-                        backgroundColor: 'cornflowerblue'
-                    };
+                    return 'cornflowerblue';
                 case "c#":
-                    return {
-                        backgroundColor: 'cadetblue'
-                    };
+                    return 'cadetblue';
                 case "vue":
-                    return {
-                        backgroundColor: 'green'
-                    };
+                    return 'green';
                 case "shaderlab":
-                    return {
-                        backgroundColor: "limegreen"
-                    };
+                    return "limegreen";
                 default: 
-                    return {
-                        backgroundColor: 'grey'
-                    };
+                    return 'grey';
             }   
         }
         else 
         {
-            return {
-                backgroundColor: 'grey'
-            };
+            return 'grey';
         }
     };
 
@@ -72,7 +58,7 @@
 
 <template>
     <div class="centerbox">
-        <p v-if="repositories.length === 0" style="text-align: center;">Inhalte werden geladen ...</p>
+        <p v-if="repositories.length === 0" style="text-align: center;">loading content ...</p>
         <div class="container">
             <div class="grid-item" v-for="repo in repositories" :key="repo.id" @click="redirectTo(repo.html_url)">
                 <div class="git-header">
@@ -84,9 +70,9 @@
                 <div>updated: {{ repo.updated_at.split('T')[0] }}</div>
                 <div class="git-row">
                     <div class="git-lang">
-                        <div class="circle" :style="getLangStyle(repo.language)"></div>
+                        <div class="circle" :style="{ backgroundColor: getLangStyle(repo.language) }"></div>
                         &nbsp;
-                        <span>{{ repo.language }}</span>
+                        <span :style="{ color: getLangStyle(repo.language) }">{{ repo.language }}</span>
                     </div>
                     <div><i class="fa-solid fa-eye"></i> {{ repo.watchers_count }}</div>
                 </div>    

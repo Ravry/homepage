@@ -89,7 +89,7 @@ const sendArticle = async () => {
             <p v-if="dbArticles.length === 0" style="text-align: center;">Oops! It looks like there's no content available right now ... please check back later!</p>
         </div>
 
-        <div class="article-container" v-if="selected_article">
+        <div class="article-container" v-if="selected_article" style="margin: 1vw">
             <div class="btn" @click="selectArticle(null)">
               <i class="fa-solid fa-house"></i>
             </div>
@@ -125,7 +125,7 @@ const sendArticle = async () => {
         </div>
 
         
-        <div class="article-container" v-if="write_article">
+        <div class="other-container" v-if="write_article">
             <div class="btn" @click="write_article = false">
               <i class="fa-solid fa-house"></i>
             </div>
