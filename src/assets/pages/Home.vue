@@ -1,5 +1,6 @@
 <script setup>
     import { ref, onMounted } from 'vue';
+    import Chart from './Chart.vue'
 
     const repositories = ref([]);
 
@@ -58,6 +59,7 @@
 
 <template>
     <div class="centerbox">
+        <Chart></Chart>
         <p v-if="repositories.length === 0" style="text-align: center;">loading content ...</p>
         <div class="container">
             <div class="grid-item" v-for="repo in repositories" :key="repo.id" @click="redirectTo(repo.html_url)">

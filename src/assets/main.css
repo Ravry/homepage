@@ -93,6 +93,7 @@ textarea {
     justify-items: center;
     justify-content: center;
     border-radius: 20px;
+    gap: 10px;
 }
 
 .container {
@@ -105,7 +106,7 @@ textarea {
     padding: 10px;
     overflow-y: auto;
     overflow-x: hidden;
-    margin: 10px;
+    margin: 0px 10px 10px 10px;
 }
 
 .container:has(.grid-item:hover) .grid-item:not(:hover) {
@@ -146,11 +147,12 @@ textarea {
     justify-content: center;
     align-items: start;
     font-size: 1rem;
-    padding: 1vw;
+    padding: 15px;
     border-radius: 10px;
     cursor: grab;
     transition: all 200ms ease-in-out;
 }
+
 
 .grid-item:hover {
     text-shadow: 0 0 10px currentColor;
@@ -196,6 +198,7 @@ textarea {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-top: 1vh;
 }
 
 .git-lang {
