@@ -68,7 +68,7 @@
       labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
       datasets: [
       {
-        label: 'Dataset 1',
+        label: 'activity',
         borderColor: 'rgba(217, 177, 255, 1.0)',
         backgroundColor: createNeonGradient(ctx, 'rgba(184, 116, 248, 0.7)', 'rgba(184, 116, 248, 0)'),
         data: monthlyActivity.value,
